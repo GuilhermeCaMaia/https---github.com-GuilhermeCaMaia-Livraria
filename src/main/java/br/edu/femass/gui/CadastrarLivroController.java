@@ -4,7 +4,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import br.edu.femass.dao.DaoAutor;
 import br.edu.femass.dao.DaoLivro;
+import br.edu.femass.model.Autor;
 import br.edu.femass.model.Livro;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -33,13 +36,16 @@ public class CadastrarLivroController implements Initializable {
     private Button btnAlterar;
     @FXML
     private Button btnIncerir;
+    @FXML
+    private ComboBox cbxAutores;
 
     // Incerir_Click
     // Gravar_Click
     // Deletar_Click
     // Alterar_Click
     
-    private DaoLivro dao = new DaoLivro();
+    private DaoLivro daoLivro = new DaoLivro();
+    private DaoAutor daoAutor = new DaoAutor();
     private Livro livro;
     private Boolean incluindo;
 
@@ -58,9 +64,9 @@ public class CadastrarLivroController implements Initializable {
         livro.setTitulo(TxtLivro.getText());
 
         if (incluindo) {
-            dao.inserir(livro);
+            daoLivro.inserir(livro);
         } else {
-            dao.alterar(livro);
+            daoLivro.alterar(livro);
         }
 
         Editar(false);
@@ -69,7 +75,7 @@ public class CadastrarLivroController implements Initializable {
 
     @FXML
     private void Deletar_Click(ActionEvent event) {
-        dao.apagar(livro);
+        daoLivro.apagar(livro);
         preencherLista();
     }
 
@@ -87,17 +93,24 @@ public class CadastrarLivroController implements Initializable {
     }
 
     private void preencherLista() {
-        List<Livro> livros = dao.buscarTodos();
+        List<Livro> livros = daoLivro.buscarTodos();
 
         ObservableList<Livro> data = FXCollections.observableArrayList(livros);
         ListLivro.setItems(data);
+    }
+    
+    private void preencherComboBox() {
+        List<Autor> autors = daoAutor.buscarTodos();
+
+        ObservableList<Autor> data = FXCollections.observableArrayList(autors);
+        cbxAutores.setItems(data);
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO Auto-generated method stub
-        
+        preencherLista();
+        preencherComboBox();
     }
     
     
