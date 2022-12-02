@@ -12,6 +12,7 @@ public class Livro {
     @Id
     private String titulo;
 
+
     public Livro(long codigo, String titulo) {
         this.codigo = codigo;
         this.titulo = titulo;

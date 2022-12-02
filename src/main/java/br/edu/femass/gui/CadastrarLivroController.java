@@ -38,15 +38,11 @@ public class CadastrarLivroController implements Initializable {
     private Button btnIncerir;
     @FXML
     private ComboBox cbxAutores;
-
-    // Incerir_Click
-    // Gravar_Click
-    // Deletar_Click
-    // Alterar_Click
-    
+        
     private DaoLivro daoLivro = new DaoLivro();
     private DaoAutor daoAutor = new DaoAutor();
     private Livro livro;
+    private Autor autor;
     private Boolean incluindo;
 
     @FXML
@@ -62,7 +58,7 @@ public class CadastrarLivroController implements Initializable {
     @FXML
     private void Gravar_Click(ActionEvent event) {
         livro.setTitulo(TxtLivro.getText());
-
+        
         if (incluindo) {
             daoLivro.inserir(livro);
         } else {
