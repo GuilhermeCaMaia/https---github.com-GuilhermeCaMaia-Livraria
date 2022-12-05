@@ -1,11 +1,15 @@
 package br.edu.femass.model;
 
-public class Aluno extends Leitor{
+import javax.persistence.Entity;
+
+
+@Entity
+public class Aluno extends Leitor {
     private String matricula;
 
-    public Aluno(Long codigo, String nome, String endereco, String telefone, Integer prazoMaximoDevolucao,
+    public Aluno(String nome, String endereco, String telefone, Integer prazoMaximoDevolucao,
             String matricula) {
-        super(codigo, nome, endereco, telefone, prazoMaximoDevolucao);
+        super(nome, endereco, telefone, prazoMaximoDevolucao);
         this.matricula = matricula;
     }
 
@@ -19,6 +23,4 @@ public class Aluno extends Leitor{
     public void setMatricula(String matricula) {
         this.matricula = matricula;
     }
-
-    
 }

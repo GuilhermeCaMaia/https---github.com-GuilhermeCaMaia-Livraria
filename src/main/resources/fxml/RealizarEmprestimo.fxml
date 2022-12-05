@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.RealizarEmprestimo">
+   <children>
+      <ListView fx:id="ListExemplares" layoutX="29.0" layoutY="60.0" prefHeight="315.0" prefWidth="190.0" />
+      <Button layoutX="350.0" layoutY="97.0" mnemonicParsing="false" onAction="#RealizarEmprestimo_Click" prefHeight="25.0" prefWidth="161.0" text="Realizar emprestimo" />
+      <ComboBox fx:id="cmbLeitor" layoutX="315.0" layoutY="47.0" prefHeight="25.0" prefWidth="231.0" />
+      <Label layoutX="263.0" layoutY="45.0" text="Leitor:">
+         <padding>
+            <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+         </padding>
+      </Label>
+      <Label layoutX="66.0" layoutY="30.0" text="Lista de Exemplares" />
+      <ListView fx:id="ListEmprestimos" layoutX="336.0" layoutY="163.0" prefHeight="200.0" prefWidth="210.0" />
+      <Label layoutX="357.0" layoutY="140.0" text="Lista de Emprestimos realizados" />
+   </children>
+</Pane>

@@ -44,7 +44,6 @@ public class CadastrarAutorController implements Initializable{
     @FXML
     private Button btnCadastrarLivros;
 
-
     private DaoAutor dao = new DaoAutor();
 
     private Autor autor;

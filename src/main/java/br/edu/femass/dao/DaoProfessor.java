@@ -6,6 +6,6 @@ import br.edu.femass.model.Professor;
 
 public class DaoProfessor extends Dao<Professor>{
     public List<Professor> buscarTodos() {
-        return em.createQuery("select c from Professor c order by c.Codigo").getResultList();
+        return em.createQuery("select c from Professor c order by c.codigo").getResultList();
     }
 }

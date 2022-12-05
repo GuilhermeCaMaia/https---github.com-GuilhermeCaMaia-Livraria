@@ -11,13 +11,13 @@ public class EntryPoint extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/CadastrarAutor.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MainMenu.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
         scene.getRoot().setStyle("-fx-font-family: 'serif'");
 
-        stage.setTitle("Cadastro de Autores");
+        stage.setTitle("Menu principal");
         stage.setScene(scene);
         stage.show();
     }

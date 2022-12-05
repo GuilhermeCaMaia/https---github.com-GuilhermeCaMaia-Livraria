@@ -1,13 +1,25 @@
 package br.edu.femass.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Leitor {
-    private Long Codigo;
-    private String nome;
-    private String endereco;
-    private String telefone;
-    private Integer PrazoMaximoDevolucao;
-    public Leitor(Long codigo, String nome, String endereco, String telefone, Integer prazoMaximoDevolucao) {
-        Codigo = codigo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Long codigo;
+    protected String nome;
+    protected String endereco;
+    protected String telefone;
+    protected Integer PrazoMaximoDevolucao;
+
+    public Leitor(String nome, String endereco, String telefone, Integer prazoMaximoDevolucao) {
+        
         this.nome = nome;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -16,10 +28,10 @@ public class Leitor {
     public Leitor() {
     }
     public Long getCodigo() {
-        return Codigo;
+        return codigo;
     }
     public void setCodigo(Long codigo) {
-        Codigo = codigo;
+        codigo = codigo;
     }
     public String getNome() {
         return nome;
@@ -45,5 +57,8 @@ public class Leitor {
     public void setPrazoMaximoDevolucao(Integer prazoMaximoDevolucao) {
         PrazoMaximoDevolucao = prazoMaximoDevolucao;
     }
-    
+    @Override
+    public String toString() {
+        return this.nome + " " + this.telefone;
+    }
 }

@@ -2,7 +2,11 @@ package br.edu.femass.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Emprestimo {
+    @Id
     private LocalDate dataEmprestimo;
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataDevolucao;

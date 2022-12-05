@@ -7,6 +7,6 @@ import br.edu.femass.model.Livro;
 
 public class DaoLivro extends Dao<Livro>{
     public List<Livro> buscarTodos() {
-        return em.createQuery("select c from Livro c order by c.Codigo").getResultList();
+        return em.createQuery("select c from Livro c order by c.codigo").getResultList();
     }
 }

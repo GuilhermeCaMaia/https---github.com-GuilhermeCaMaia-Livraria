@@ -1,11 +1,14 @@
 package br.edu.femass.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Professor extends Leitor{
     private String disciplina;
 
-    public Professor(Long codigo, String nome, String endereco, String telefone, Integer prazoMaximoDevolucao,
+    public Professor(String nome, String endereco, String telefone, Integer prazoMaximoDevolucao,
             String disciplina) {
-        super(codigo, nome, endereco, telefone, prazoMaximoDevolucao);
+        super(nome, endereco, telefone, prazoMaximoDevolucao);
         this.disciplina = disciplina;
     }
 
