@@ -7,10 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.CadastrarLeitorController">
    <children>
-      <ListView fx:id="ListLeitor" layoutX="22.0" layoutY="21.0" prefHeight="329.0" prefWidth="200.0" />
+      <ListView fx:id="ListLeitor" layoutX="22.0" layoutY="21.0" onKeyPressed="#ListLeitor_KeyPressed" onMouseClicked="#ListLeitor_mouseClicked" prefHeight="329.0" prefWidth="200.0" />
       <Label layoutX="254.0" layoutY="104.0" text="Nome:">
          <padding>
             <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />

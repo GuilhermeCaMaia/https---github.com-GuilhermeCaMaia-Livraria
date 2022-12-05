@@ -27,10 +27,10 @@ public class Leitor {
     }
     public Leitor() {
     }
-    public Long getCodigo() {
+    public Long getcodigo() {
         return codigo;
     }
-    public void setCodigo(Long codigo) {
+    public void setcodigo(Long codigo) {
         codigo = codigo;
     }
     public String getNome() {

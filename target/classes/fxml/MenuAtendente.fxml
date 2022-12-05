@@ -3,11 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.MenuAtendenteController">
    <children>
       <Button layoutX="217.0" layoutY="105.0" mnemonicParsing="false" onAction="#CadastrarLeitor_Click" text="Cadastrar Leitor" />
-      <Button layoutX="61.0" layoutY="262.0" mnemonicParsing="false" onAction="#DevolverEmpréstimo_Click" text="Devolver Empréstimo" />
-      <Button layoutX="365.0" layoutY="262.0" mnemonicParsing="false" onAction="#RealizarEmpréstomo_Click" text="Realizar Empréstomo" />
+      <Button layoutX="61.0" layoutY="262.0" mnemonicParsing="false" onAction="#DevolverEmprestimo_Click" text="Devolver Empréstimo" />
+      <Button layoutX="365.0" layoutY="262.0" mnemonicParsing="false" onAction="#RealizarEmprestomo_Click" text="Realizar Empréstomo" />
    </children>
 </Pane>

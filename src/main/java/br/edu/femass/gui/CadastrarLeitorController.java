@@ -20,6 +20,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 public class CadastrarLeitorController implements Initializable {
@@ -75,6 +77,10 @@ public class CadastrarLeitorController implements Initializable {
 
         TxtNome.setText("");
         TxtNome.requestFocus();
+        TxtEndereco.setText("");
+        TxtTelefone.setText("");
+        TxtDisciplina.setText("");
+        TxtMatricula.setText("");
     }
 
     @FXML
@@ -87,6 +93,10 @@ public class CadastrarLeitorController implements Initializable {
 
         TxtNome.setText("");
         TxtNome.requestFocus();
+        TxtEndereco.setText("");
+        TxtTelefone.setText("");
+        TxtDisciplina.setText("");
+        TxtMatricula.setText("");
     }
 
     @FXML
@@ -132,10 +142,12 @@ public class CadastrarLeitorController implements Initializable {
 
     @FXML
     private void Deletar_Click(ActionEvent event) {
-        leitor = new Leitor();
+        // leitor = new Leitor();
+        // aluno = new Aluno();
+        // professor = new Professor();
+        daoAluno.apagar(aluno);
+        daoProfessor.apagar(professor);
         daoLeitor.apagar(leitor);
-        // daoAluno.alterar(aluno);
-        // daoProfessor.apagar(professor);
         preencherLista();
     }
 
@@ -156,6 +168,35 @@ public class CadastrarLeitorController implements Initializable {
 
         ObservableList<Leitor> data = FXCollections.observableArrayList(Leitores);
         ListLeitor.setItems(data);
+    }
+
+    private void ExibirDados() {
+        this.aluno = (Aluno) ListLeitor.getSelectionModel().getSelectedItem();
+        this.professor = (Professor) ListLeitor.getSelectionModel().getSelectedItem();
+        if (aluno == null && professor == null)
+            return;
+
+        if (aluno == null) { // professor
+            TxtNome.setText(professor.getNome());
+            TxtEndereco.setText(professor.getEndereco());
+            TxtTelefone.setText(professor.getTelefone());
+            TxtDisciplina.setText(professor.getDisciplina());
+        } else { // aluno
+            TxtNome.setText(aluno.getNome());
+            TxtEndereco.setText(aluno.getEndereco());
+            TxtTelefone.setText(aluno.getTelefone());
+            TxtMatricula.setText(aluno.getMatricula());
+        }
+    }
+
+    @FXML
+    private void ListLeitor_KeyPressed(KeyEvent event) {
+        // ExibirDados();
+    }
+
+    @FXML
+    private void ListLeitor_mouseClicked(MouseEvent event) {
+        // ExibirDados();
     }
 
     @Override
