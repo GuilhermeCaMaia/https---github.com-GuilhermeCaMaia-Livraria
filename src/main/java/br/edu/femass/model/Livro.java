@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long codigo;
+    private Long codigo;
     private String titulo;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -27,11 +27,11 @@ public class Livro {
 
     }
 
-    public long getCodigo() {
+    public Long getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(long codigo) {
+    public void setCodigo(Long codigo) {
         this.codigo = codigo;
     }
 

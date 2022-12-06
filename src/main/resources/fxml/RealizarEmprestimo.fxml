@@ -7,7 +7,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.RealizarEmprestimo">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.RealizarEmprestimoController">
    <children>
       <ListView fx:id="ListExemplares" layoutX="29.0" layoutY="60.0" prefHeight="315.0" prefWidth="190.0" />
       <Button layoutX="350.0" layoutY="97.0" mnemonicParsing="false" onAction="#RealizarEmprestimo_Click" prefHeight="25.0" prefWidth="161.0" text="Realizar emprestimo" />

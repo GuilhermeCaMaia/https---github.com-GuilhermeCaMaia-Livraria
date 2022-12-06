@@ -1,10 +1,11 @@
 package br.edu.femass.gui;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
+import br.edu.femass.dao.DaoEmprestimo;
 import br.edu.femass.dao.DaoExemplar;
 import br.edu.femass.dao.DaoLeitor;
 import br.edu.femass.model.Emprestimo;
@@ -32,10 +33,17 @@ public class RealizarEmprestimoController implements Initializable{
     DaoExemplar daoExemplar = new DaoExemplar();
     Leitor leitor;
     DaoLeitor daoLeitor = new DaoLeitor();
+    Emprestimo emprestimo;
+    DaoEmprestimo daoEmprestimo = new DaoEmprestimo();
     
     @FXML
     private void RealizarEmprestimo_Click(ActionEvent event) {
-
+        emprestimo = new Emprestimo();
+        emprestimo.setExemplar(ListExemplares.getSelectionModel().getSelectedItem());
+        emprestimo.setLeitor(cmbLeitor.getSelectionModel().getSelectedItem());
+        emprestimo.setDataEmprestimo(LocalDate.now());
+        daoEmprestimo.inserir(emprestimo);
+        preencherEmpretimo();
     }
     
     private void preencherLista() {
@@ -51,11 +59,19 @@ public class RealizarEmprestimoController implements Initializable{
         ObservableList<Leitor> data = FXCollections.observableArrayList(leitores);
         cmbLeitor.setItems(data);
     }
+
+    private void preencherEmpretimo() {
+        List<Emprestimo> emprestimos = daoEmprestimo.buscarTodos();
+
+        ObservableList<Emprestimo> data = FXCollections.observableArrayList(emprestimos);
+        ListEmprestimos.setItems(data);
+    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         preencherCombo();
         preencherLista();
+        preencherEmpretimo();
     }
     
 }

@@ -145,9 +145,10 @@ public class CadastrarLeitorController implements Initializable {
         // leitor = new Leitor();
         // aluno = new Aluno();
         // professor = new Professor();
-        daoAluno.apagar(aluno);
-        daoProfessor.apagar(professor);
+        leitor = ListLeitor.getSelectionModel().getSelectedItem();
         daoLeitor.apagar(leitor);
+        // daoAluno.apagar(aluno);
+        // daoProfessor.apagar(professor);
         preencherLista();
     }
 
@@ -171,8 +172,15 @@ public class CadastrarLeitorController implements Initializable {
     }
 
     private void ExibirDados() {
-        this.aluno = (Aluno) ListLeitor.getSelectionModel().getSelectedItem();
-        this.professor = (Professor) ListLeitor.getSelectionModel().getSelectedItem();
+        Leitor l = ListLeitor.getSelectionModel().getSelectedItem();
+        if (l instanceof Aluno) {
+            this.aluno = (Aluno) l;
+            this.professor = null;
+        } else {
+            this.professor = (Professor) l;
+            this.aluno = null;
+        }
+        
         if (aluno == null && professor == null)
             return;
 
@@ -191,12 +199,12 @@ public class CadastrarLeitorController implements Initializable {
 
     @FXML
     private void ListLeitor_KeyPressed(KeyEvent event) {
-        // ExibirDados();
+        ExibirDados();
     }
 
     @FXML
     private void ListLeitor_mouseClicked(MouseEvent event) {
-        // ExibirDados();
+        ExibirDados();
     }
 
     @Override

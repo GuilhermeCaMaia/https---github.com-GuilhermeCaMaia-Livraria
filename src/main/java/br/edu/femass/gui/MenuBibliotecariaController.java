@@ -27,4 +27,23 @@ public class MenuBibliotecariaController {
             System.out.println(e.getMessage());
         }
     }
+
+    @FXML
+    private void LeitoreEmAtraso_Click(ActionEvent event) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/fxml/LeitoresEmAtrazo.fxml"));
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add("/styles/Styles.css");
+            scene.getRoot().setStyle("-fx-font-family: 'serif'");
+
+            Stage stage = new Stage();
+            stage.setTitle("Lista de Leitores em Atraso");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

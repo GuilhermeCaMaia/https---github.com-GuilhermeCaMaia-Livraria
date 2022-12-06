@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="TblEmprestimo" layoutX="38.0" layoutY="115.0" prefHeight="252.0" prefWidth="524.0">
+        <columns>
+          <TableColumn prefWidth="122.0" text="Leitor" />
+          <TableColumn prefWidth="268.0" text="Exemplar" />
+            <TableColumn prefWidth="131.0" text="Data para devolução" />
+        </columns>
+      </TableView>
+      <Label layoutX="167.0" layoutY="38.0" text="Lista de leitore em atraso">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

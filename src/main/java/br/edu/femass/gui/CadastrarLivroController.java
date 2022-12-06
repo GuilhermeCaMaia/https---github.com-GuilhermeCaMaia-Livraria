@@ -124,6 +124,7 @@ public class CadastrarLivroController implements Initializable {
             return;
 
         TxtLivro.setText(livro.getTitulo());
+        TxtCodigo.setText(livro.getCodigo().toString());
     }
     
     @FXML

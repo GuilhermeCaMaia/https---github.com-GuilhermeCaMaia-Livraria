@@ -2,27 +2,33 @@ package br.edu.femass.model;
 
 import java.time.LocalDate;
 
+import javax.annotation.Generated;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 @Entity
 public class Emprestimo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private LocalDate dataEmprestimo;
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataDevolucao;
 
-    // @ManyToOne(cascade = CascadeType.ALL)
-    // private Leitor leitor;
-    // private Exemplar exemplar;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Leitor leitor;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Exemplar exemplar;
 
-    public Emprestimo(LocalDate dataEmprestimo, LocalDate dataPrevistaDevolucao, LocalDate dataDevolucao /* ,Leitor leitor,Exemplar exemplar*/) {
+    public Emprestimo(LocalDate dataEmprestimo, LocalDate dataPrevistaDevolucao, LocalDate dataDevolucao ,Leitor leitor,Exemplar exemplar) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataPrevistaDevolucao = dataPrevistaDevolucao;
         this.dataDevolucao = dataDevolucao;
-        // this.leitor = leitor;
-        // this.exemplar = exemplar;
+        this.leitor = leitor;
+        this.exemplar = exemplar;
     }
     public Emprestimo() {
     }
@@ -44,17 +50,20 @@ public class Emprestimo {
     public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
-    // public Leitor getLeitor() {
-    //     return leitor;
-    // }
-    // public void setLeitor(Leitor leitor) {
-    //     this.leitor = leitor;
-    // }
-    // public Exemplar getExemplar() {
-    //     return exemplar;
-    // }
-    // public void setExemplar(Exemplar exemplar) {
-    //     this.exemplar = exemplar;
-    // }
-    
+    public Leitor getLeitor() {
+        return leitor;
+    }
+    public void setLeitor(Leitor leitor) {
+        this.leitor = leitor;
+    }
+    public Exemplar getExemplar() {
+        return exemplar;
+    }
+    public void setExemplar(Exemplar exemplar) {
+        this.exemplar = exemplar;
+    }
+    @Override
+    public String toString() {
+        return this.leitor.getNome() + " " + this.exemplar.getLivro();
+    }
 }
